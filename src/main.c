@@ -1,36 +1,31 @@
-
-#include <MKL25Z4.h>
-#include "bcd.h"
 #include "gpio.h"
+#include "adc.h"
 #include "uart.h"
 #include "pit.h"
 
+extern uint16_t temperature_read;
+int togg=0;
+int i;
 int main(void) {
-	UART0_Initialize(14400);//din cerinta
-	RGBLedInit();
+	UART0_Init(14400);
+	GPIO_Init();
 	PIT_INIT();
-	//RED_SET();
-	//int i;
-	//BCD_Init();
-	
-    while (1) {
-				//for(i = 0 ;i<3;i++)
-					//DX_CLR(i);
-				//LED_Sequence(0);
-				//delay(DEFAULT_SYSTEM_CLOCK/200);
-			//DX_SET(2);
-				//LED_Sequence(1);
-        //delay(DEFAULT_SYSTEM_CLOCK/200);
-			//DX_SET(1);
-				//LED_Sequence(2);
-				//delay(DEFAULT_SYSTEM_CLOCK/200);
-			//DX_SET(0);
-				//LED_Sequence(3);
-        //delay(DEFAULT_SYSTEM_CLOCK/200);
-			//UART0_Transmit(0x23);
-    }
-		
-		
-		
+	ADC0_Init();
+	while(1){ 
+		if(togg)
+		{
+			Flame_Read();
+			togg=0;
+			delay(DEFAULT_SYSTEM_CLOCK/20);
+		}
+		else
+		{	
+			for(i =0;i<9;i++)
+			{
+				Temperature_Read();
+				delay(DEFAULT_SYSTEM_CLOCK/200);
+			}
+			togg=1;
+		}
+	}
 }
-

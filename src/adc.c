@@ -1,11 +1,17 @@
 #include "adc.h"
+#include "uart.h"
 
-//de determinat: facem intrerupts la adc? sau in loop/intrerupt la led?
-//HW average sau fara?
-//adco 1?
+#define TEMPERATURE_SENSOR_CHANNEL (26) // Temperature Sensor
+#define BANDGAP_VOLTAGE_CHANNEL (27)
 
+uint16_t temperature_read;
+uint16_t CalcVDD;
+uint16_t V_ADC_TEMP25;
+uint16_t TempSlope_Low;
+uint16_t Vtemp;
+uint16_t temperature;
 
-void ADC0_Init() {
+void ADC0_Init(void) {
 	
 	// Activarea semnalului de ceas pentru modulul periferic ADC
 	SIM->SCGC6 |= SIM_SCGC6_ADC0_MASK;
@@ -20,32 +26,22 @@ void ADC0_Init() {
 	// Selectarea ratei de divizare folosit de periferic pentru generarea ceasului intern --> ADIV
 	// Set ADC clock frequency fADCK less than or equal to 4 MHz (PG. 494)
 	ADC0->CFG1 |= ADC_CFG1_MODE(2) |
-							 ADC_CFG1_ADICLK(0) |
-							 ADC_CFG1_ADIV(2);
+							 ADC_CFG1_ADICLK(1) |
+							 ADC_CFG1_ADIV(3);
 	
 	// DIFF = 0 --> Conversii single-ended (PG. 464)
 	ADC0->SC1[0] = 0x00;
 	ADC0->SC3 = 0x00;
 
-	// Selectarea modului de conversii continue, 
-	// pentru a-l putea folosi in tandem cu mecanismul de intreruperi
-	ADC0->SC3 |= ADC_SC3_ADCO_MASK;
-	
-	// Activarea subsistemului de conversie prin aproximari succesive pe un anumit canal (PG.464)
-	ADC0->SC1[0] |= ADC_SC1_ADCH(ADC_CHANNEL);
-	// Enables conversion complete interrupts
-	
 	
 	ADC0->SC1[0] |= ADC_SC1_AIEN_MASK;
+	
 	ADC0->SC1[0] &= ~ADC_SC1_DIFF_MASK;
 	ADC0->SC3 &= ~ADC_SC3_AVGE_MASK;
 	
-	NVIC_ClearPendingIRQ(ADC0_IRQn);
-	NVIC_EnableIRQ(ADC0_IRQn);
 }
 
-
-int ADC0_Calibrate() {
+int ADC0_Calibrate(void) {
 	
 	// ===== For best calibration results =====
 	
@@ -115,28 +111,6 @@ int ADC0_Calibrate() {
 	return (0);
 }
 
-uint16_t ADC0_Read(){
-	
-	// A conversion is initiated following a write to SC1A, with SC1n[ADCH] not all 1's (PG. 485)
-	ADC0->SC1[0] |= ADC_SC1_ADCH(ADC_CHANNEL);
-	
-	// ADACT is set when a conversion is initiated
-	// and cleared when a conversion is completed or aborted.
-	while(ADC0->SC2 & ADC_SC2_ADACT_MASK);
-	
-	// A conversion is completed when the result of the conversion is transferred 
-	// into the data result registers, Rn (PG. 486)
-	
-	// If the compare functions are disabled, this is indicated by setting of SC1n[COCO]
-	// If hardware averaging is enabled, the respective SC1n[COCO] sets only if
-	// the last of the selected number of conversions is completed (PG. 486)
-	while(!(ADC0->SC1[0] & ADC_SC1_COCO_MASK));
-	
-	return (uint16_t) ADC0->R[0];
-	
-}
-
-
 uint16_t ADC0_Read(uint8_t ch){
 	
 	// A conversion is initiated following a write to SC1A, with SC1n[ADCH] not all 1's (PG. 485)
@@ -160,7 +134,7 @@ uint16_t ADC0_Read(uint8_t ch){
 	
 }
 
-void Temperature_Read(){
+void Temperature_Read(void){
 	
 	static uint8_t counter = 0;
 	static uint8_t bandgap_voltage;
@@ -212,36 +186,46 @@ void Temperature_Read(){
 		counter = 0;
 		temperature_read = 0;
 		}
-	}
-
-	
-	
+	}	
 }
 
-void ADC0_IRQHandler(){
-	uint16_t analog_input = (uint16_t) ADC0->R[0];
-
-	float measured_voltage = (analog_input * 3.3f) / 65535;
+void Flame_Read(void){
 	
-	
-	uint8_t parte_zecimala = (uint8_t) measured_voltage;
-	uint8_t parte_fractionara1 = ((uint8_t)(measured_voltage * 10)) % 10;
-	uint8_t parte_fractionara2 = ((uint8_t)(measured_voltage * 100)) % 10;
-	UART0_Transmit('V');
-	UART0_Transmit('o');
-	UART0_Transmit('l');
-	UART0_Transmit('t');
-	UART0_Transmit('a');
-	UART0_Transmit('g');
-	UART0_Transmit('e');
-	UART0_Transmit(' ');
-	UART0_Transmit('=');
-	UART0_Transmit(' ');
-	UART0_Transmit(parte_zecimala + 0x30);
-	UART0_Transmit('.');
-	UART0_Transmit(parte_fractionara1 + 0x30);
-	UART0_Transmit(parte_fractionara2 + 0x30);
-	UART0_Transmit('V');
-	UART0_Transmit(0x0A);
-	UART0_Transmit(0x0D);
+		uint16_t V= ADC0_Read(15);
+		float V2= (V * 3.3f) / (1<<10);
+		int i;
+		
+		temperature = V;
+		
+		uint8_t parte_zecimala = (uint8_t) V2;
+		uint8_t parte_fractionara1 = ((uint8_t)(V2 * 10)) % 10;
+		uint8_t parte_fractionara2 = ((uint8_t)(V2 * 100)) % 10;
+		
+		UART0_Transmit('V');
+		UART0_Transmit('o');
+		UART0_Transmit('l');
+		UART0_Transmit('t');
+		UART0_Transmit('a');
+		UART0_Transmit('g');
+		UART0_Transmit('e');
+		UART0_Transmit(' ');
+		UART0_Transmit('=');
+		UART0_Transmit(' ');
+		//for(i= 7 ; i>=0;i--)
+		//{
+		//	if (((V >> (4*i)) & 0x0F) < 10)
+		//		UART0_Transmit(((V >> (4*i)) & 0x0F) + 0x30);
+		//	else
+		//		UART0_Transmit(((V >> (4*i)) & 0x0F) - 0x0A + 'A');
+		//		
+		//}
+		UART0_Transmit(parte_zecimala + 0x30);
+		UART0_Transmit('.');
+		UART0_Transmit(parte_fractionara1 + 0x30);
+		UART0_Transmit(parte_fractionara2 + 0x30);
+		UART0_Transmit('C');
+		UART0_Transmit(0x0A);
+		UART0_Transmit(0x0D);
+		
 }
+
