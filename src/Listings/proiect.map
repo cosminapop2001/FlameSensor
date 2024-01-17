@@ -4,35 +4,24 @@ Component: Arm Compiler for Embedded 6.19 Tool: armlink [5e73cb00]
 
 Section Cross References
 
-    gpio.o(.ARM.exidx.text.RGBLedInit) refers to gpio.o(.text.RGBLedInit) for [Anonymous Symbol]
+    adc.o(.ARM.exidx.text.ADC0_Init) refers to adc.o(.text.ADC0_Init) for [Anonymous Symbol]
+    adc.o(.ARM.exidx.text.ADC0_ReadChannel) refers to adc.o(.text.ADC0_ReadChannel) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIO_Init) refers to gpio.o(.text.GPIO_Init) for [Anonymous Symbol]
     gpio.o(.ARM.exidx.text.LED_Sequence) refers to gpio.o(.text.LED_Sequence) for [Anonymous Symbol]
-    gpio.o(.ARM.exidx.text.delay) refers to gpio.o(.text.delay) for [Anonymous Symbol]
-    gpio.o(.text.RED_SET) refers to gpio.o(.text.delay) for delay
-    gpio.o(.ARM.exidx.text.RED_SET) refers to gpio.o(.text.RED_SET) for [Anonymous Symbol]
-    gpio.o(.text.GREEN_SET) refers to gpio.o(.text.delay) for delay
-    gpio.o(.ARM.exidx.text.GREEN_SET) refers to gpio.o(.text.GREEN_SET) for [Anonymous Symbol]
-    gpio.o(.text.BLUE_SET) refers to gpio.o(.text.delay) for delay
-    gpio.o(.ARM.exidx.text.BLUE_SET) refers to gpio.o(.text.BLUE_SET) for [Anonymous Symbol]
-    main.o(.text.main) refers to uart.o(.text.UART0_Initialize) for UART0_Initialize
-    main.o(.text.main) refers to gpio.o(.text.RGBLedInit) for RGBLedInit
+    gpio.o(.ARM.exidx.text.delay_ms) refers to gpio.o(.text.delay_ms) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.afisare_BCD) refers to gpio.o(.text.afisare_BCD) for [Anonymous Symbol]
+    main.o(.text.main) refers to uart.o(.text.UART0_Init) for UART0_Init
+    main.o(.text.main) refers to gpio.o(.text.GPIO_Init) for GPIO_Init
     main.o(.text.main) refers to pit.o(.text.PIT_INIT) for PIT_INIT
+    main.o(.text.main) refers to adc.o(.text.ADC0_Init) for ADC0_Init
+    main.o(.text.main) refers to adc.o(.text.ADC0_ReadChannel) for ADC0_ReadChannel
+    main.o(.text.main) refers to aeabi_sdiv.o(.text) for __aeabi_uidiv
+    main.o(.text.main) refers to uart.o(.text.UART0_Transmit) for UART0_Transmit
+    main.o(.text.main) refers to gpio.o(.text.afisare_BCD) for afisare_BCD
+    main.o(.text.main) refers to gpio.o(.text.delay_ms) for delay_ms
+    main.o(.text.main) refers to main.o(.bss.sensor_read) for sensor_read
+    main.o(.text.main) refers to main.o(.bss.i) for i
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
-    bcd.o(.ARM.exidx.text.BCD_Init) refers to bcd.o(.text.BCD_Init) for [Anonymous Symbol]
-    bcd.o(.ARM.exidx.text.DX_SET) refers to bcd.o(.text.DX_SET) for [Anonymous Symbol]
-    bcd.o(.ARM.exidx.text.DX_CLR) refers to bcd.o(.text.DX_CLR) for [Anonymous Symbol]
-    uart.o(.ARM.exidx.text.UART0_Transmit) refers to uart.o(.text.UART0_Transmit) for [Anonymous Symbol]
-    uart.o(.ARM.exidx.text.UART0_Receive) refers to uart.o(.text.UART0_Receive) for [Anonymous Symbol]
-    uart.o(.text.UART0_Initialize) refers to aeabi_sdiv.o(.text) for __aeabi_uidiv
-    uart.o(.text.UART0_Initialize) refers to uart.o(.text.__NVIC_ClearPendingIRQ) for __NVIC_ClearPendingIRQ
-    uart.o(.text.UART0_Initialize) refers to uart.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
-    uart.o(.ARM.exidx.text.UART0_Initialize) refers to uart.o(.text.UART0_Initialize) for [Anonymous Symbol]
-    uart.o(.ARM.exidx.text.__NVIC_ClearPendingIRQ) refers to uart.o(.text.__NVIC_ClearPendingIRQ) for [Anonymous Symbol]
-    uart.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to uart.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
-    uart.o(.text.UART0_IRQHandler) refers to uart.o(.text.UART0_Transmit) for UART0_Transmit
-    uart.o(.text.UART0_IRQHandler) refers to uart.o(.bss.write_index) for write_index
-    uart.o(.text.UART0_IRQHandler) refers to uart.o(.bss.out) for out
-    uart.o(.text.UART0_IRQHandler) refers to uart.o(.bss.read_index) for read_index
-    uart.o(.ARM.exidx.text.UART0_IRQHandler) refers to uart.o(.text.UART0_IRQHandler) for [Anonymous Symbol]
     pit.o(.text.PIT_INIT) refers to pit.o(.text.__NVIC_ClearPendingIRQ) for __NVIC_ClearPendingIRQ
     pit.o(.text.PIT_INIT) refers to pit.o(.text.__NVIC_SetPriority) for __NVIC_SetPriority
     pit.o(.text.PIT_INIT) refers to pit.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
@@ -41,15 +30,17 @@ Section Cross References
     pit.o(.ARM.exidx.text.__NVIC_SetPriority) refers to pit.o(.text.__NVIC_SetPriority) for [Anonymous Symbol]
     pit.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to pit.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
     pit.o(.text.PIT_IRQHandler) refers to gpio.o(.text.LED_Sequence) for LED_Sequence
-    pit.o(.text.PIT_IRQHandler) refers to uart.o(.text.UART0_Transmit) for UART0_Transmit
-    pit.o(.text.PIT_IRQHandler) refers to pit.o(.data.state) for state
+    pit.o(.text.PIT_IRQHandler) refers to pit.o(.data.LEDstate) for LEDstate
     pit.o(.ARM.exidx.text.PIT_IRQHandler) refers to pit.o(.text.PIT_IRQHandler) for [Anonymous Symbol]
+    uart.o(.ARM.exidx.text.UART0_Transmit) refers to uart.o(.text.UART0_Transmit) for [Anonymous Symbol]
+    uart.o(.ARM.exidx.text.UART0_Receive) refers to uart.o(.text.UART0_Receive) for [Anonymous Symbol]
+    uart.o(.text.UART0_Init) refers to aeabi_sdiv.o(.text) for __aeabi_uidiv
+    uart.o(.ARM.exidx.text.UART0_Init) refers to uart.o(.text.UART0_Init) for [Anonymous Symbol]
     startup_mkl25z4.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_mkl25z4.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_mkl25z4.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_mkl25z4.o(RESET) refers to startup_mkl25z4.o(STACK) for __initial_sp
     startup_mkl25z4.o(RESET) refers to startup_mkl25z4.o(.text) for Reset_Handler
-    startup_mkl25z4.o(RESET) refers to uart.o(.text.UART0_IRQHandler) for UART0_IRQHandler
     startup_mkl25z4.o(RESET) refers to pit.o(.text.PIT_IRQHandler) for PIT_IRQHandler
     startup_mkl25z4.o(.ARM.__at_0x400) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_mkl25z4.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -179,50 +170,35 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
+    Removing adc.o(.text), (0 bytes).
+    Removing adc.o(.ARM.exidx.text.ADC0_Init), (8 bytes).
+    Removing adc.o(.ARM.exidx.text.ADC0_ReadChannel), (8 bytes).
     Removing gpio.o(.text), (0 bytes).
-    Removing gpio.o(.ARM.exidx.text.RGBLedInit), (8 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIO_Init), (8 bytes).
     Removing gpio.o(.ARM.exidx.text.LED_Sequence), (8 bytes).
-    Removing gpio.o(.text.delay), (34 bytes).
-    Removing gpio.o(.ARM.exidx.text.delay), (8 bytes).
-    Removing gpio.o(.text.RED_SET), (44 bytes).
-    Removing gpio.o(.ARM.exidx.text.RED_SET), (8 bytes).
-    Removing gpio.o(.text.GREEN_SET), (44 bytes).
-    Removing gpio.o(.ARM.exidx.text.GREEN_SET), (8 bytes).
-    Removing gpio.o(.text.BLUE_SET), (40 bytes).
-    Removing gpio.o(.ARM.exidx.text.BLUE_SET), (8 bytes).
+    Removing gpio.o(.ARM.exidx.text.delay_ms), (8 bytes).
+    Removing gpio.o(.ARM.exidx.text.afisare_BCD), (8 bytes).
     Removing main.o(.text), (0 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
-    Removing bcd.o(.text), (0 bytes).
-    Removing bcd.o(.text.BCD_Init), (268 bytes).
-    Removing bcd.o(.ARM.exidx.text.BCD_Init), (8 bytes).
-    Removing bcd.o(.text.DX_SET), (144 bytes).
-    Removing bcd.o(.ARM.exidx.text.DX_SET), (8 bytes).
-    Removing bcd.o(.text.DX_CLR), (144 bytes).
-    Removing bcd.o(.ARM.exidx.text.DX_CLR), (8 bytes).
-    Removing uart.o(.text), (0 bytes).
-    Removing uart.o(.ARM.exidx.text.UART0_Transmit), (8 bytes).
-    Removing uart.o(.text.UART0_Receive), (32 bytes).
-    Removing uart.o(.ARM.exidx.text.UART0_Receive), (8 bytes).
-    Removing uart.o(.ARM.exidx.text.UART0_Initialize), (8 bytes).
-    Removing uart.o(.ARM.exidx.text.__NVIC_ClearPendingIRQ), (8 bytes).
-    Removing uart.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
-    Removing uart.o(.ARM.exidx.text.UART0_IRQHandler), (8 bytes).
-    Removing uart.o(.bss.i), (1 bytes).
-    Removing uart.o(.bss.array), (4 bytes).
     Removing pit.o(.text), (0 bytes).
     Removing pit.o(.ARM.exidx.text.PIT_INIT), (8 bytes).
     Removing pit.o(.ARM.exidx.text.__NVIC_ClearPendingIRQ), (8 bytes).
     Removing pit.o(.ARM.exidx.text.__NVIC_SetPriority), (8 bytes).
     Removing pit.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
     Removing pit.o(.ARM.exidx.text.PIT_IRQHandler), (8 bytes).
+    Removing uart.o(.text), (0 bytes).
+    Removing uart.o(.ARM.exidx.text.UART0_Transmit), (8 bytes).
+    Removing uart.o(.text.UART0_Receive), (32 bytes).
+    Removing uart.o(.ARM.exidx.text.UART0_Receive), (8 bytes).
+    Removing uart.o(.ARM.exidx.text.UART0_Init), (8 bytes).
     Removing system_mkl25z4.o(.text), (0 bytes).
     Removing system_mkl25z4.o(.ARM.exidx.text.SystemInit), (8 bytes).
     Removing system_mkl25z4.o(.text.SystemCoreClockUpdate), (556 bytes).
     Removing system_mkl25z4.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing system_mkl25z4.o(.data.SystemCoreClock), (4 bytes).
 
-42 unused section(s) (total 1503 bytes) removed from the image.
+27 unused section(s) (total 732 bytes) removed from the image.
 
 ==============================================================================
 
@@ -291,7 +267,7 @@ Image Symbol Table
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/cfplib/fpinit.c                 0x00000000   Number         0  fpinit.o ABSOLUTE
     RTE/Device/MKL25Z128xxx4/startup_MKL25Z4.s 0x00000000   Number         0  startup_mkl25z4.o ABSOLUTE
-    bcd.c                                    0x00000000   Number         0  bcd.o ABSOLUTE
+    adc.c                                    0x00000000   Number         0  adc.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     gpio.c                                   0x00000000   Number         0  gpio.o ABSOLUTE
     main.c                                   0x00000000   Number         0  main.o ABSOLUTE
@@ -354,72 +330,93 @@ Image Symbol Table
     .text                                    0x0000036c   Section        0  sys_exit.o(.text)
     .text                                    0x00000378   Section        2  use_no_semi.o(.text)
     .text                                    0x0000037a   Section        0  indicate_semi.o(.text)
-    [Anonymous Symbol]                       0x0000037c   Section        0  pit.o(.text.PIT_INIT)
-    __arm_cp.0_0                             0x000003c8   Number         4  pit.o(.text.PIT_INIT)
-    __arm_cp.0_1                             0x000003cc   Number         4  pit.o(.text.PIT_INIT)
-    __arm_cp.0_2                             0x000003d0   Number         4  pit.o(.text.PIT_INIT)
-    __arm_cp.0_3                             0x000003d4   Number         4  pit.o(.text.PIT_INIT)
-    __arm_cp.0_4                             0x000003d8   Number         4  pit.o(.text.PIT_INIT)
-    [Anonymous Symbol]                       0x000003dc   Section        0  system_mkl25z4.o(.text.SystemInit)
-    __arm_cp.0_0                             0x000003e4   Number         4  system_mkl25z4.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x0000037c   Section        0  adc.o(.text.ADC0_Init)
+    __arm_cp.0_1                             0x0000039c   Number         4  adc.o(.text.ADC0_Init)
+    __arm_cp.0_2                             0x000003a0   Number         4  adc.o(.text.ADC0_Init)
+    [Anonymous Symbol]                       0x000003a4   Section        0  adc.o(.text.ADC0_ReadChannel)
+    __arm_cp.1_0                             0x000003d0   Number         4  adc.o(.text.ADC0_ReadChannel)
+    __arm_cp.1_1                             0x000003d4   Number         4  adc.o(.text.ADC0_ReadChannel)
+    [Anonymous Symbol]                       0x000003d8   Section        0  system_mkl25z4.o(.text.SystemInit)
+    __arm_cp.0_0                             0x000003e0   Number         4  system_mkl25z4.o(.text.SystemInit)
     .ARM.__at_0x400                          0x00000400   Section       16  startup_mkl25z4.o(.ARM.__at_0x400)
-    [Anonymous Symbol]                       0x00000410   Section        0  gpio.o(.text.LED_Sequence)
-    __arm_cp.1_1                             0x000004a8   Number         4  gpio.o(.text.LED_Sequence)
-    __arm_cp.1_2                             0x000004ac   Number         4  gpio.o(.text.LED_Sequence)
-    [Anonymous Symbol]                       0x000004b0   Section        0  pit.o(.text.PIT_IRQHandler)
-    __arm_cp.4_0                             0x000004e8   Number         4  pit.o(.text.PIT_IRQHandler)
-    __arm_cp.4_1                             0x000004ec   Number         4  pit.o(.text.PIT_IRQHandler)
-    [Anonymous Symbol]                       0x000004f0   Section        0  gpio.o(.text.RGBLedInit)
-    __arm_cp.0_1                             0x0000054c   Number         4  gpio.o(.text.RGBLedInit)
-    __arm_cp.0_3                             0x00000550   Number         4  gpio.o(.text.RGBLedInit)
-    __arm_cp.0_4                             0x00000554   Number         4  gpio.o(.text.RGBLedInit)
-    __arm_cp.0_5                             0x00000558   Number         4  gpio.o(.text.RGBLedInit)
-    __arm_cp.0_6                             0x0000055c   Number         4  gpio.o(.text.RGBLedInit)
-    __arm_cp.0_7                             0x00000560   Number         4  gpio.o(.text.RGBLedInit)
-    __arm_cp.0_8                             0x00000564   Number         4  gpio.o(.text.RGBLedInit)
-    [Anonymous Symbol]                       0x00000568   Section        0  uart.o(.text.UART0_IRQHandler)
-    __arm_cp.5_2                             0x000005d8   Number         4  uart.o(.text.UART0_IRQHandler)
-    __arm_cp.5_3                             0x000005dc   Number         4  uart.o(.text.UART0_IRQHandler)
-    __arm_cp.5_4                             0x000005e0   Number         4  uart.o(.text.UART0_IRQHandler)
-    [Anonymous Symbol]                       0x000005e4   Section        0  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_0                             0x000006a4   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_1                             0x000006a8   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_2                             0x000006ac   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_3                             0x000006b0   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_4                             0x000006b4   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_5                             0x000006b8   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_6                             0x000006bc   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_7                             0x000006c0   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_8                             0x000006c4   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_9                             0x000006c8   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_10                            0x000006cc   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_11                            0x000006d0   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_12                            0x000006d4   Number         4  uart.o(.text.UART0_Initialize)
-    __arm_cp.2_13                            0x000006d8   Number         4  uart.o(.text.UART0_Initialize)
-    [Anonymous Symbol]                       0x000006dc   Section        0  uart.o(.text.UART0_Transmit)
-    __arm_cp.0_0                             0x000006fc   Number         4  uart.o(.text.UART0_Transmit)
-    __arm_cp.0_1                             0x00000700   Number         4  uart.o(.text.UART0_Transmit)
-    __NVIC_ClearPendingIRQ                   0x00000705   Thumb Code    40  uart.o(.text.__NVIC_ClearPendingIRQ)
-    [Anonymous Symbol]                       0x00000704   Section        0  uart.o(.text.__NVIC_ClearPendingIRQ)
-    __NVIC_ClearPendingIRQ                   0x0000072d   Thumb Code    40  pit.o(.text.__NVIC_ClearPendingIRQ)
-    [Anonymous Symbol]                       0x0000072c   Section        0  pit.o(.text.__NVIC_ClearPendingIRQ)
-    __arm_cp.1_0                             0x00000754   Number         4  pit.o(.text.__NVIC_ClearPendingIRQ)
-    __NVIC_EnableIRQ                         0x00000759   Thumb Code    40  uart.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x00000758   Section        0  uart.o(.text.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x00000781   Thumb Code    40  pit.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x00000780   Section        0  pit.o(.text.__NVIC_EnableIRQ)
-    __arm_cp.3_0                             0x000007a8   Number         4  pit.o(.text.__NVIC_EnableIRQ)
-    __NVIC_SetPriority                       0x000007ad   Thumb Code   124  pit.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x000007ac   Section        0  pit.o(.text.__NVIC_SetPriority)
-    __arm_cp.2_0                             0x00000828   Number         4  pit.o(.text.__NVIC_SetPriority)
-    __arm_cp.2_1                             0x0000082c   Number         4  pit.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x00000830   Section        0  main.o(.text.main)
+    [Anonymous Symbol]                       0x00000410   Section        0  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_1                             0x000004f8   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_3                             0x000004fc   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_5                             0x00000500   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_6                             0x00000504   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_7                             0x00000508   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_9                             0x0000050c   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_10                            0x00000510   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_11                            0x00000514   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_12                            0x00000518   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_13                            0x0000051c   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_14                            0x00000520   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_15                            0x00000524   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_16                            0x00000528   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_17                            0x0000052c   Number         4  gpio.o(.text.GPIO_Init)
+    __arm_cp.0_18                            0x00000530   Number         4  gpio.o(.text.GPIO_Init)
+    [Anonymous Symbol]                       0x00000534   Section        0  gpio.o(.text.LED_Sequence)
+    __arm_cp.1_0                             0x000005cc   Number         4  gpio.o(.text.LED_Sequence)
+    __arm_cp.1_1                             0x000005d0   Number         4  gpio.o(.text.LED_Sequence)
+    __arm_cp.1_3                             0x000005d4   Number         4  gpio.o(.text.LED_Sequence)
+    [Anonymous Symbol]                       0x000005d8   Section        0  pit.o(.text.PIT_INIT)
+    __arm_cp.0_0                             0x00000624   Number         4  pit.o(.text.PIT_INIT)
+    __arm_cp.0_1                             0x00000628   Number         4  pit.o(.text.PIT_INIT)
+    __arm_cp.0_2                             0x0000062c   Number         4  pit.o(.text.PIT_INIT)
+    __arm_cp.0_3                             0x00000630   Number         4  pit.o(.text.PIT_INIT)
+    __arm_cp.0_4                             0x00000634   Number         4  pit.o(.text.PIT_INIT)
+    [Anonymous Symbol]                       0x00000638   Section        0  pit.o(.text.PIT_IRQHandler)
+    __arm_cp.4_0                             0x00000664   Number         4  pit.o(.text.PIT_IRQHandler)
+    __arm_cp.4_1                             0x00000668   Number         4  pit.o(.text.PIT_IRQHandler)
+    [Anonymous Symbol]                       0x0000066c   Section        0  uart.o(.text.UART0_Init)
+    __arm_cp.2_0                             0x00000700   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_1                             0x00000704   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_2                             0x00000708   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_3                             0x0000070c   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_4                             0x00000710   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_5                             0x00000714   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_6                             0x00000718   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_7                             0x0000071c   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_8                             0x00000720   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_9                             0x00000724   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_10                            0x00000728   Number         4  uart.o(.text.UART0_Init)
+    __arm_cp.2_11                            0x0000072c   Number         4  uart.o(.text.UART0_Init)
+    [Anonymous Symbol]                       0x00000730   Section        0  uart.o(.text.UART0_Transmit)
+    __arm_cp.0_0                             0x00000750   Number         4  uart.o(.text.UART0_Transmit)
+    __arm_cp.0_1                             0x00000754   Number         4  uart.o(.text.UART0_Transmit)
+    __NVIC_ClearPendingIRQ                   0x00000759   Thumb Code    40  pit.o(.text.__NVIC_ClearPendingIRQ)
+    [Anonymous Symbol]                       0x00000758   Section        0  pit.o(.text.__NVIC_ClearPendingIRQ)
+    __arm_cp.1_0                             0x00000780   Number         4  pit.o(.text.__NVIC_ClearPendingIRQ)
+    __NVIC_EnableIRQ                         0x00000785   Thumb Code    40  pit.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x00000784   Section        0  pit.o(.text.__NVIC_EnableIRQ)
+    __arm_cp.3_0                             0x000007ac   Number         4  pit.o(.text.__NVIC_EnableIRQ)
+    __NVIC_SetPriority                       0x000007b1   Thumb Code   124  pit.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x000007b0   Section        0  pit.o(.text.__NVIC_SetPriority)
+    __arm_cp.2_0                             0x0000082c   Number         4  pit.o(.text.__NVIC_SetPriority)
+    __arm_cp.2_1                             0x00000830   Number         4  pit.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x00000834   Section        0  gpio.o(.text.afisare_BCD)
+    __arm_cp.3_0                             0x00000908   Number         4  gpio.o(.text.afisare_BCD)
+    __arm_cp.3_1                             0x0000090c   Number         4  gpio.o(.text.afisare_BCD)
+    __arm_cp.3_2                             0x00000910   Number         4  gpio.o(.text.afisare_BCD)
+    __arm_cp.3_3                             0x00000914   Number         4  gpio.o(.text.afisare_BCD)
+    __arm_cp.3_4                             0x00000918   Number         4  gpio.o(.text.afisare_BCD)
+    __arm_cp.3_5                             0x0000091c   Number         4  gpio.o(.text.afisare_BCD)
+    [Anonymous Symbol]                       0x00000920   Section        0  gpio.o(.text.delay_ms)
+    [Anonymous Symbol]                       0x0000094c   Section        0  main.o(.text.main)
+    __arm_cp.0_0                             0x00000a24   Number         4  main.o(.text.main)
+    __arm_cp.0_1                             0x00000a28   Number         4  main.o(.text.main)
+    __arm_cp.0_2                             0x00000a2c   Number         4  main.o(.text.main)
+    __arm_cp.0_3                             0x00000a30   Number         4  main.o(.text.main)
+    __arm_cp.0_4                             0x00000a34   Number         4  main.o(.text.main)
+    __arm_cp.0_5                             0x00000a38   Number         4  main.o(.text.main)
+    __arm_cp.0_6                             0x00000a3c   Number         4  main.o(.text.main)
+    __arm_cp.0_7                             0x00000a40   Number         4  main.o(.text.main)
     .bss                                     0x1ffff008   Section       96  libspace.o(.bss)
-    Heap_Mem                                 0x1ffff0f0   Data           0  startup_mkl25z4.o(HEAP)
-    Stack_Mem                                0x1ffff0f0   Data         256  startup_mkl25z4.o(STACK)
-    HEAP                                     0x1ffff0f0   Section        0  startup_mkl25z4.o(HEAP)
-    STACK                                    0x1ffff0f0   Section      256  startup_mkl25z4.o(STACK)
-    __initial_sp                             0x1ffff1f0   Data           0  startup_mkl25z4.o(STACK)
+    Heap_Mem                                 0x1ffff070   Data           0  startup_mkl25z4.o(HEAP)
+    Stack_Mem                                0x1ffff070   Data         256  startup_mkl25z4.o(STACK)
+    HEAP                                     0x1ffff070   Section        0  startup_mkl25z4.o(HEAP)
+    STACK                                    0x1ffff070   Section      256  startup_mkl25z4.o(STACK)
+    __initial_sp                             0x1ffff170   Data           0  startup_mkl25z4.o(STACK)
 
     Global Symbols
 
@@ -541,6 +538,7 @@ Image Symbol Table
     TPM1_IRQHandler                          0x0000017b   Thumb Code     0  startup_mkl25z4.o(.text)
     TPM2_IRQHandler                          0x0000017b   Thumb Code     0  startup_mkl25z4.o(.text)
     TSI0_IRQHandler                          0x0000017b   Thumb Code     0  startup_mkl25z4.o(.text)
+    UART0_IRQHandler                         0x0000017b   Thumb Code     0  startup_mkl25z4.o(.text)
     UART1_IRQHandler                         0x0000017b   Thumb Code     0  startup_mkl25z4.o(.text)
     UART2_IRQHandler                         0x0000017b   Thumb Code     0  startup_mkl25z4.o(.text)
     USB0_IRQHandler                          0x0000017b   Thumb Code     0  startup_mkl25z4.o(.text)
@@ -561,23 +559,25 @@ Image Symbol Table
     __I$use$semihosting                      0x00000379   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x00000379   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x0000037b   Thumb Code     0  indicate_semi.o(.text)
-    PIT_INIT                                 0x0000037d   Thumb Code    76  pit.o(.text.PIT_INIT)
-    SystemInit                               0x000003dd   Thumb Code     8  system_mkl25z4.o(.text.SystemInit)
-    LED_Sequence                             0x00000411   Thumb Code   152  gpio.o(.text.LED_Sequence)
-    PIT_IRQHandler                           0x000004b1   Thumb Code    56  pit.o(.text.PIT_IRQHandler)
-    RGBLedInit                               0x000004f1   Thumb Code    92  gpio.o(.text.RGBLedInit)
-    UART0_IRQHandler                         0x00000569   Thumb Code   112  uart.o(.text.UART0_IRQHandler)
-    UART0_Initialize                         0x000005e5   Thumb Code   192  uart.o(.text.UART0_Initialize)
-    UART0_Transmit                           0x000006dd   Thumb Code    32  uart.o(.text.UART0_Transmit)
-    main                                     0x00000831   Thumb Code    28  main.o(.text.main)
-    Region$$Table$$Base                      0x0000084c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0000086c   Number         0  anon$$obj.o(Region$$Table)
-    state                                    0x1ffff000   Data           2  pit.o(.data.state)
+    ADC0_Init                                0x0000037d   Thumb Code    32  adc.o(.text.ADC0_Init)
+    ADC0_ReadChannel                         0x000003a5   Thumb Code    44  adc.o(.text.ADC0_ReadChannel)
+    SystemInit                               0x000003d9   Thumb Code     8  system_mkl25z4.o(.text.SystemInit)
+    GPIO_Init                                0x00000411   Thumb Code   232  gpio.o(.text.GPIO_Init)
+    LED_Sequence                             0x00000535   Thumb Code   152  gpio.o(.text.LED_Sequence)
+    PIT_INIT                                 0x000005d9   Thumb Code    76  pit.o(.text.PIT_INIT)
+    PIT_IRQHandler                           0x00000639   Thumb Code    44  pit.o(.text.PIT_IRQHandler)
+    UART0_Init                               0x0000066d   Thumb Code   148  uart.o(.text.UART0_Init)
+    UART0_Transmit                           0x00000731   Thumb Code    32  uart.o(.text.UART0_Transmit)
+    afisare_BCD                              0x00000835   Thumb Code   212  gpio.o(.text.afisare_BCD)
+    delay_ms                                 0x00000921   Thumb Code    44  gpio.o(.text.delay_ms)
+    main                                     0x0000094d   Thumb Code   216  main.o(.text.main)
+    Region$$Table$$Base                      0x00000a44   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000a64   Number         0  anon$$obj.o(Region$$Table)
+    LEDstate                                 0x1ffff000   Data           2  pit.o(.data.LEDstate)
     __libspace_start                         0x1ffff008   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x1ffff068   Data           0  libspace.o(.bss)
-    out                                      0x1ffff068   Data         128  uart.o(.bss.out)
-    read_index                               0x1ffff0e8   Data           1  uart.o(.bss.read_index)
-    write_index                              0x1ffff0e9   Data           1  uart.o(.bss.write_index)
+    i                                        0x1ffff068   Data           2  main.o(.bss.i)
+    sensor_read                              0x1ffff06a   Data           2  main.o(.bss.sensor_read)
 
 
 
@@ -587,108 +587,108 @@ Memory Map of the image
 
   Image Entry point : 0x00000165
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00000870, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000a68, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x0000086c, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000a64, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x000000c0   Data   RO           86    RESET               startup_mkl25z4.o
-    0x000000c0   0x000000c0   0x00000008   Code   RO          116  * !!!main             c_p.l(__main.o)
-    0x000000c8   0x000000c8   0x0000003c   Code   RO          293    !!!scatter          c_p.l(__scatter.o)
-    0x00000104   0x00000104   0x0000001a   Code   RO          295    !!handler_copy      c_p.l(__scatter_copy.o)
+    0x00000000   0x00000000   0x000000c0   Data   RO           71    RESET               startup_mkl25z4.o
+    0x000000c0   0x000000c0   0x00000008   Code   RO          101  * !!!main             c_p.l(__main.o)
+    0x000000c8   0x000000c8   0x0000003c   Code   RO          278    !!!scatter          c_p.l(__scatter.o)
+    0x00000104   0x00000104   0x0000001a   Code   RO          280    !!handler_copy      c_p.l(__scatter_copy.o)
     0x0000011e   0x0000011e   0x00000002   PAD
-    0x00000120   0x00000120   0x0000001c   Code   RO          297    !!handler_zi        c_p.l(__scatter_zi.o)
-    0x0000013c   0x0000013c   0x00000002   Code   RO          154    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          168    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          170    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          172    .ARM.Collect$$libinit$$00000006  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          175    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          177    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          179    .ARM.Collect$$libinit$$00000010  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          182    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          184    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          186    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          188    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          190    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          192    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          194    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          196    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          198    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          200    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          202    .ARM.Collect$$libinit$$00000027  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          206    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          208    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          210    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          212    .ARM.Collect$$libinit$$00000034  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000002   Code   RO          213    .ARM.Collect$$libinit$$00000035  c_p.l(libinit2.o)
-    0x00000140   0x00000140   0x00000002   Code   RO          248    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
-    0x00000142   0x00000142   0x00000000   Code   RO          276    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
-    0x00000142   0x00000142   0x00000000   Code   RO          278    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
-    0x00000142   0x00000142   0x00000000   Code   RO          281    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
-    0x00000142   0x00000142   0x00000000   Code   RO          284    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
-    0x00000142   0x00000142   0x00000000   Code   RO          286    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
-    0x00000142   0x00000142   0x00000000   Code   RO          289    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
-    0x00000142   0x00000142   0x00000002   Code   RO          290    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
-    0x00000144   0x00000144   0x00000000   Code   RO          118    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
-    0x00000144   0x00000144   0x00000000   Code   RO          124    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
-    0x00000144   0x00000144   0x00000006   Code   RO          136    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
-    0x0000014a   0x0000014a   0x00000000   Code   RO          126    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
-    0x0000014a   0x0000014a   0x00000004   Code   RO          127    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
-    0x0000014e   0x0000014e   0x00000000   Code   RO          129    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
-    0x0000014e   0x0000014e   0x00000008   Code   RO          130    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
-    0x00000156   0x00000156   0x00000002   Code   RO          159    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
-    0x00000158   0x00000158   0x00000000   Code   RO          219    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
-    0x00000158   0x00000158   0x00000004   Code   RO          220    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
-    0x0000015c   0x0000015c   0x00000006   Code   RO          221    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x00000120   0x00000120   0x0000001c   Code   RO          282    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x0000013c   0x0000013c   0x00000002   Code   RO          139    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          153    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          155    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          157    .ARM.Collect$$libinit$$00000006  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          160    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          162    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          164    .ARM.Collect$$libinit$$00000010  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          167    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          169    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          171    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          173    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          175    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          177    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          179    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          181    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          183    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          185    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          187    .ARM.Collect$$libinit$$00000027  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          191    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          193    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          195    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          197    .ARM.Collect$$libinit$$00000034  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000002   Code   RO          198    .ARM.Collect$$libinit$$00000035  c_p.l(libinit2.o)
+    0x00000140   0x00000140   0x00000002   Code   RO          233    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x00000142   0x00000142   0x00000000   Code   RO          261    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x00000142   0x00000142   0x00000000   Code   RO          263    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x00000142   0x00000142   0x00000000   Code   RO          266    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x00000142   0x00000142   0x00000000   Code   RO          269    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x00000142   0x00000142   0x00000000   Code   RO          271    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x00000142   0x00000142   0x00000000   Code   RO          274    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x00000142   0x00000142   0x00000002   Code   RO          275    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x00000144   0x00000144   0x00000000   Code   RO          103    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x00000144   0x00000144   0x00000000   Code   RO          109    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x00000144   0x00000144   0x00000006   Code   RO          121    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x0000014a   0x0000014a   0x00000000   Code   RO          111    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x0000014a   0x0000014a   0x00000004   Code   RO          112    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x0000014e   0x0000014e   0x00000000   Code   RO          114    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x0000014e   0x0000014e   0x00000008   Code   RO          115    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x00000156   0x00000156   0x00000002   Code   RO          144    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x00000158   0x00000158   0x00000000   Code   RO          204    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x00000158   0x00000158   0x00000004   Code   RO          205    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x0000015c   0x0000015c   0x00000006   Code   RO          206    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
     0x00000162   0x00000162   0x00000002   PAD
-    0x00000164   0x00000164   0x00000040   Code   RO           88  * .text               startup_mkl25z4.o
-    0x000001a4   0x000001a4   0x0000016c   Code   RO          110    .text               c_p.l(aeabi_sdiv.o)
-    0x00000310   0x00000310   0x00000006   Code   RO          114    .text               c_p.l(heapauxi.o)
-    0x00000316   0x00000316   0x0000003e   Code   RO          140    .text               c_p.l(sys_stackheap_outer.o)
-    0x00000354   0x00000354   0x00000010   Code   RO          143    .text               c_p.l(exit.o)
-    0x00000364   0x00000364   0x00000008   Code   RO          155    .text               c_p.l(libspace.o)
-    0x0000036c   0x0000036c   0x0000000c   Code   RO          214    .text               c_p.l(sys_exit.o)
-    0x00000378   0x00000378   0x00000002   Code   RO          237    .text               c_p.l(use_no_semi.o)
-    0x0000037a   0x0000037a   0x00000000   Code   RO          239    .text               c_p.l(indicate_semi.o)
+    0x00000164   0x00000164   0x00000040   Code   RO           73  * .text               startup_mkl25z4.o
+    0x000001a4   0x000001a4   0x0000016c   Code   RO           95    .text               c_p.l(aeabi_sdiv.o)
+    0x00000310   0x00000310   0x00000006   Code   RO           99    .text               c_p.l(heapauxi.o)
+    0x00000316   0x00000316   0x0000003e   Code   RO          125    .text               c_p.l(sys_stackheap_outer.o)
+    0x00000354   0x00000354   0x00000010   Code   RO          128    .text               c_p.l(exit.o)
+    0x00000364   0x00000364   0x00000008   Code   RO          140    .text               c_p.l(libspace.o)
+    0x0000036c   0x0000036c   0x0000000c   Code   RO          199    .text               c_p.l(sys_exit.o)
+    0x00000378   0x00000378   0x00000002   Code   RO          222    .text               c_p.l(use_no_semi.o)
+    0x0000037a   0x0000037a   0x00000000   Code   RO          224    .text               c_p.l(indicate_semi.o)
     0x0000037a   0x0000037a   0x00000002   PAD
-    0x0000037c   0x0000037c   0x00000060   Code   RO           67    .text.PIT_INIT      pit.o
-    0x000003dc   0x000003dc   0x0000000c   Code   RO           97    .text.SystemInit    system_mkl25z4.o
-    0x000003e8   0x000003e8   0x00000018   PAD
-    0x00000400   0x00000400   0x00000010   Code   RO           87    .ARM.__at_0x400     startup_mkl25z4.o
-    0x00000410   0x00000410   0x000000a0   Code   RO            4    .text.LED_Sequence  gpio.o
-    0x000004b0   0x000004b0   0x00000040   Code   RO           75    .text.PIT_IRQHandler  pit.o
-    0x000004f0   0x000004f0   0x00000078   Code   RO            2    .text.RGBLedInit    gpio.o
-    0x00000568   0x00000568   0x0000007c   Code   RO           53    .text.UART0_IRQHandler  uart.o
-    0x000005e4   0x000005e4   0x000000f8   Code   RO           47    .text.UART0_Initialize  uart.o
-    0x000006dc   0x000006dc   0x00000028   Code   RO           43    .text.UART0_Transmit  uart.o
-    0x00000704   0x00000704   0x00000028   Code   RO           49    .text.__NVIC_ClearPendingIRQ  uart.o
-    0x0000072c   0x0000072c   0x0000002c   Code   RO           69    .text.__NVIC_ClearPendingIRQ  pit.o
-    0x00000758   0x00000758   0x00000028   Code   RO           51    .text.__NVIC_EnableIRQ  uart.o
-    0x00000780   0x00000780   0x0000002c   Code   RO           73    .text.__NVIC_EnableIRQ  pit.o
-    0x000007ac   0x000007ac   0x00000084   Code   RO           71    .text.__NVIC_SetPriority  pit.o
-    0x00000830   0x00000830   0x0000001c   Code   RO           21    .text.main          main.o
-    0x0000084c   0x0000084c   0x00000020   Data   RO          292    Region$$Table       anon$$obj.o
+    0x0000037c   0x0000037c   0x00000028   Code   RO            2    .text.ADC0_Init     adc.o
+    0x000003a4   0x000003a4   0x00000034   Code   RO            4    .text.ADC0_ReadChannel  adc.o
+    0x000003d8   0x000003d8   0x0000000c   Code   RO           82    .text.SystemInit    system_mkl25z4.o
+    0x000003e4   0x000003e4   0x0000001c   PAD
+    0x00000400   0x00000400   0x00000010   Code   RO           72    .ARM.__at_0x400     startup_mkl25z4.o
+    0x00000410   0x00000410   0x00000124   Code   RO           13    .text.GPIO_Init     gpio.o
+    0x00000534   0x00000534   0x000000a4   Code   RO           15    .text.LED_Sequence  gpio.o
+    0x000005d8   0x000005d8   0x00000060   Code   RO           39    .text.PIT_INIT      pit.o
+    0x00000638   0x00000638   0x00000034   Code   RO           47    .text.PIT_IRQHandler  pit.o
+    0x0000066c   0x0000066c   0x000000c4   Code   RO           61    .text.UART0_Init    uart.o
+    0x00000730   0x00000730   0x00000028   Code   RO           57    .text.UART0_Transmit  uart.o
+    0x00000758   0x00000758   0x0000002c   Code   RO           41    .text.__NVIC_ClearPendingIRQ  pit.o
+    0x00000784   0x00000784   0x0000002c   Code   RO           45    .text.__NVIC_EnableIRQ  pit.o
+    0x000007b0   0x000007b0   0x00000084   Code   RO           43    .text.__NVIC_SetPriority  pit.o
+    0x00000834   0x00000834   0x000000ec   Code   RO           19    .text.afisare_BCD   gpio.o
+    0x00000920   0x00000920   0x0000002c   Code   RO           17    .text.delay_ms      gpio.o
+    0x0000094c   0x0000094c   0x000000f8   Code   RO           28    .text.main          main.o
+    0x00000a44   0x00000a44   0x00000020   Data   RO          277    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x1ffff000, Load base: 0x0000086c, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x1ffff000   0x0000086c   0x00000002   Data   RW           77    .data.state         pit.o
-
-
-    Execution Region ER_ZI (Exec base: 0x1ffff008, Load base: 0x00000870, Size: 0x000001e8, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x1ffff000, Load base: 0x00000a64, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x1ffff008        -       0x00000060   Zero   RW          156    .bss                c_p.l(libspace.o)
-    0x1ffff068        -       0x00000080   Zero   RW           58    .bss.out            uart.o
-    0x1ffff0e8        -       0x00000001   Zero   RW           57    .bss.read_index     uart.o
-    0x1ffff0e9        -       0x00000001   Zero   RW           56    .bss.write_index    uart.o
-    0x1ffff0ea   0x00000870   0x00000006   PAD
-    0x1ffff0f0        -       0x00000000   Zero   RW           85    HEAP                startup_mkl25z4.o
-    0x1ffff0f0        -       0x00000100   Zero   RW           84    STACK               startup_mkl25z4.o
+    0x1ffff000   0x00000a64   0x00000002   Data   RW           49    .data.LEDstate      pit.o
+
+
+    Execution Region ER_ZI (Exec base: 0x1ffff008, Load base: 0x00000a68, Size: 0x00000168, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x1ffff008        -       0x00000060   Zero   RW          141    .bss                c_p.l(libspace.o)
+    0x1ffff068        -       0x00000002   Zero   RW           31    .bss.i              main.o
+    0x1ffff06a        -       0x00000002   Zero   RW           30    .bss.sensor_read    main.o
+    0x1ffff06c   0x00000a68   0x00000004   PAD
+    0x1ffff070        -       0x00000000   Zero   RW           70    HEAP                startup_mkl25z4.o
+    0x1ffff070        -       0x00000100   Zero   RW           69    STACK               startup_mkl25z4.o
 
 
 ==============================================================================
@@ -698,17 +698,18 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       280         52          0          0          0       2424   gpio.o
-        28          0          0          0          0        371   main.o
-       380         44          0          2          0       3850   pit.o
-        80         44        192          0        256        912   startup_mkl25z4.o
-        12          4          0          0          0       2575   system_mkl25z4.o
-       492         76          0          0        130       4244   uart.o
+        92         16          0          0          0       2181   adc.o
+       736        112          0          0          0       2452   gpio.o
+       248         32          0          0          4        698   main.o
+       368         44          0          2          0       3843   pit.o
+        80         44        192          0        256        916   startup_mkl25z4.o
+        12          4          0          0          0       2577   system_mkl25z4.o
+       236         56          0          0          0       2273   uart.o
 
     ----------------------------------------------------------------------
-      1296        244        224          4        392      14376   Object Totals
+      1800        336        224          4        264      14940   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        24         24          0          2          6          0   (incl. Padding)
+        28         28          0          2          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -756,15 +757,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1932        264        224          4        488      14792   Grand Totals
-      1932        264        224          4        488      14792   ELF Image Totals
-      1932        264        224          4          0          0   ROM Totals
+      2436        356        224          4        360      15336   Grand Totals
+      2436        356        224          4        360      15336   ELF Image Totals
+      2436        356        224          4          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2156 (   2.11kB)
-    Total RW  Size (RW Data + ZI Data)               492 (   0.48kB)
-    Total ROM Size (Code + RO Data + RW Data)       2160 (   2.11kB)
+    Total RO  Size (Code + RO Data)                 2660 (   2.60kB)
+    Total RW  Size (RW Data + ZI Data)               364 (   0.36kB)
+    Total ROM Size (Code + RO Data + RW Data)       2664 (   2.60kB)
 
 ==============================================================================
 
