@@ -385,9 +385,14 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>gpio.h</FileName>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\gpio.h</FilePath>
+              <FilePath>.\adc.h</FilePath>
             </File>
             <File>
               <FileName>gpio.c</FileName>
@@ -395,29 +400,14 @@
               <FilePath>.\gpio.c</FilePath>
             </File>
             <File>
+              <FileName>gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\gpio.h</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>bcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\bcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>bcd.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\bcd.h</FilePath>
-            </File>
-            <File>
-              <FileName>uart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\uart.c</FilePath>
-            </File>
-            <File>
-              <FileName>uart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\uart.h</FilePath>
             </File>
             <File>
               <FileName>pit.c</FileName>
@@ -430,14 +420,14 @@
               <FilePath>.\pit.h</FilePath>
             </File>
             <File>
-              <FileName>adc.c</FileName>
+              <FileName>uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\adc.c</FilePath>
+              <FilePath>.\uart.c</FilePath>
             </File>
             <File>
-              <FileName>adc.h</FileName>
+              <FileName>uart.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\adc.h</FilePath>
+              <FilePath>.\uart.h</FilePath>
             </File>
           </Files>
         </Group>

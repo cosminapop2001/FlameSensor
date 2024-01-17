@@ -1,8 +1,9 @@
-#include "MKL25Z4.h"
+#ifndef ADC_H
+#define ADC_H
+
+#include <stdint.h>
 
 void ADC0_Init(void);
-int ADC0_Calibrate(void);
-uint16_t ADC0_Read(uint8_t);
-void ADC0_IRQHandler(void);
-void Flame_Read(void);
-void Temperature_Read(void);
+uint16_t ADC0_ReadChannel(uint16_t channel);
+
+#endif // ADC_H

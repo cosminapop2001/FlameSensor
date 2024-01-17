@@ -21,30 +21,40 @@ Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
-C:\Users\Admin\Desktop\ANUL 4\4.Microprocesoare\proiect\proiect.uvprojx
-Project File Date:  12/02/2023
+C:\Users\Admin\Desktop\Proiect MICRO\FlameSensor-main\src\proiect.uvprojx
+Project File Date:  01/16/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-pit.c(2): warning: In file included from...
+main.c(1): warning: In file included from...
 ./gpio.h(3): warning: // comments are not allowed in this language [-Wcomment]
 #define RED_PIN (18) //PORT B 
                      ^
-pit.c(5): warning: no previous extern declaration for non-static variable 'state' [-Wmissing-variable-declarations]
-uint16_t state = 3;
+main.c(2): warning: In file included from...
+./adc.h(9): warning: // comments are not allowed in this language [-Wcomment]
+#endif // ADC_H
+       ^
+main.c(19): warning: // comments are not allowed in this language [-Wcomment]
+                        //Transmit the adcValue for debugging
+                        ^
+main.c(6): warning: no previous extern declaration for non-static variable 'sensor_read' [-Wmissing-variable-declarations]
+uint16_t sensor_read;
          ^
-pit.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint16_t state = 3;
+main.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint16_t sensor_read;
 ^
-pit.c(10): warning: // comments are not allowed in this language [-Wcomment]
-        PIT_MCR &= ~PIT_MCR_MDIS_MASK; // mdis=0 Clock for standard PIT timers is enabled
-                                       ^
-3 warnings generated.
-compiling pit.c...
+main.c(7): warning: no previous extern declaration for non-static variable 'i' [-Wmissing-variable-declarations]
+uint16_t i;
+         ^
+main.c(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint16_t i;
+^
+5 warnings generated.
+compiling main.c...
 linking...
-Program Size: Code=1932 RO-data=224 RW-data=4 ZI-data=488  
-".\Objects\proiect.axf" - 0 Error(s), 3 Warning(s).
+Program Size: Code=2436 RO-data=224 RW-data=4 ZI-data=360  
+".\Objects\proiect.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -71,9 +81,9 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:2.5.0
-      Source file:   Device/Source/ARM/startup_MKL25Z4.s
-      Source file:   Device/Source/system_MKL25Z4.c
       Include file:  Device/Source/system_MKL25Z4.h
+      Source file:   Device/Source/system_MKL25Z4.c
+      Source file:   Device/Source/ARM/startup_MKL25Z4.s
 Build Time Elapsed:  00:00:00
 </pre>
 </body>

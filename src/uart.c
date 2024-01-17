@@ -52,15 +52,7 @@ void UART0_Init(uint32_t baud_rate){
 	//Setare numarul de biti de date la 8 si fara bit de paritate
 	UART0->C1 = 0;
 	
-	//Dezactivare intreruperi la transmisie
-	UART0->C2 |= UART0_C2_TIE(0);
-	UART0->C2 |= UART0_C2_TCIE(0);
-	
-	//Activare intreruperi la receptie
-	UART0->C2 |= UART0_C2_RIE(1);
 	
 	UART0->C2 |= ((UART_C2_RE_MASK) | (UART_C2_TE_MASK));
-	
-	NVIC_EnableIRQ(UART0_IRQn);
 	
 }
